@@ -2,8 +2,9 @@
 
 ## Steps to develop APIs
 1. Define APIs functionality of a car wash appointment.
-    - Reserve
+    - Booking
     - Get detail
+    - Check-in
     - Cancel
 2. Design Data model and create ER diagram.
 3. Implementing APIs with Django.
