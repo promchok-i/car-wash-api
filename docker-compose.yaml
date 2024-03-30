@@ -1,0 +1,26 @@
+services:
+  db:
+    container_name: db
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api_app:
+    container_name: api_app
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=pgsql://postgres:postgres@db:5432/postgres
+      - DEBUG=True
+    depends_on:
+      - db
+
+volumes:
+  pgdata: {}
