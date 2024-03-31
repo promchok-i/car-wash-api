@@ -70,12 +70,12 @@ class CustomerService:
         customer.total_spending += spending
         
         # Update the customer level from appointment count
-        gold_spending = 5000
-        silver_spending = 3000
-        if customer.total_spending > gold_spending:
+        gold_spending = 1000
+        silver_spending = 500
+        if customer.total_spending >= gold_spending:
             customer.level = 'gold'
             logger.info('Update customer level to %s success (Customer : %s).', customer.level, customer.name)
-        elif customer.total_spending > silver_spending:
+        elif customer.total_spending >= silver_spending:
             customer.level = 'silver'
             logger.info('Update customer level to %s success (Customer : %s).', customer.level, customer.name)
             
